@@ -80,19 +80,19 @@ There are two different ways the plugin manager can be installed:
 
 Let's say you wanna submit this new utility-type plugin named as `sample_plugin.py`:
 ```python
-# ba_meta require api 7
-import ba
+# ba_meta require api 8
+import babase
 
-# ba_meta export plugin
-class Main(ba.Plugin):
+# ba_meta export babase.Plugin
+class Main(babase.Plugin):
     def on_app_running(self):
-        ba.screenmessage("Hi! I am a sample plugin!")
+        babase.screenmessage("Hi! I am a sample plugin!")
 
     def has_settings_ui(self):
         return True
 
     def show_settings_ui(self, source_widget):
-        ba.screenmessage("You tapped my settings!")
+        babase.screenmessage("You tapped my settings!")
 ```
 
 You'll have to fork this repository and add your `sample_plugin.py` plugin file into the appropriate directory, which for
@@ -149,17 +149,17 @@ diff --git a/plugins/utilities/sample_plugin.py b/plugins/utilities/sample_plugi
 index ebb7dcc..da2b312 100644
 --- a/plugins/utilities/sample_plugin.py
 +++ b/plugins/utilities/sample_plugin.py
-@@ -5,6 +5,7 @@ import ba
- class Main(ba.Plugin):
+@@ -5,6 +5,7 @@ import babase
+ class Main(babase.Plugin):
      def on_app_running(self):
-         ba.screenmessage("Hi! I am a sample plugin!")
+         babase.screenmessage("Hi! I am a sample plugin!")
 
      def has_settings_ui(self):
          return True
 
      def show_settings_ui(self, source_widget):
--        ba.screenmessage("You tapped my settings!")
-+        ba.screenmessage("Hey! This is my new screenmessage!")
+-        babase.screenmessage("You tapped my settings!")
++        babase.screenmessage("Hey! This is my new screenmessage!")
 ```
 
 To name this new version as `1.1.0`, add `"1.1.0": null,` just above the previous plugin version in `utilities.json`:
@@ -199,7 +199,8 @@ That's it! Now you can make a [pull request](../../compare) with both the update
   will also help us to notify the maintainers of any future breaking changes in plugin manager that could affect 3rd party
   plugin sources.
 
-  [rikkolovescats/sahilp-plugins](https://github.com/rikkolovescats/sahilp-plugins)
+  - [rikkolovescats/sahilp-plugins](https://github.com/rikkolovescats/sahilp-plugins)
+  - [Aeliux/arcane](https://github.com/Aeliux/arcane)
 
 
 ## Tests
